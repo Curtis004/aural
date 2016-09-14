@@ -1,0 +1,9 @@
+acumen:
+  service: ""
+  commands:
+    voice: "/voice/command"
+aural:
+  room: "living room"
+  sounds:
+    recognition: "sounds/recognition.wav"
+    failure: "sounds/failure.wav"
