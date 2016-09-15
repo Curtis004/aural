@@ -1,9 +1,9 @@
 acumen:
-  service: ""
+  service: "%ACUMEN_URI%"
   commands:
     voice: "/voice/command"
 aural:
-  room: ""
+  room: "%DEFAULT_URI%"
   sounds:
     recognition: "sounds/recognition.wav"
     failure: "sounds/failure.wav"
