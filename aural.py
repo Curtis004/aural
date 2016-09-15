@@ -15,14 +15,15 @@ class Aural:
     recognizer = sr.Recognizer()
 
     def __init__(self):
-        with open(os.path.join(os.path.dirname(__file__), "configuration.yaml")) as config:
+        dir = os.path.dirname(__file__)
+        with open(os.path.join(dir, "configuration.yaml")) as config:
             self.config = yaml.load(config)
 
         self.microphone = sr.Microphone()
         self.acumenClient = ac.AcumenClient(self.config)
 
-        self.recognition = wave.open(self.config["aural"]["sounds"]["recognition"])
-        self.failure = wave.open(self.config["aural"]["sounds"]["failure"])
+        self.recognition = wave.open(os.path.join(dir, self.config["aural"]["sounds"]["recognition"]))
+        self.failure = wave.open(os.path.join(dir, self.config["aural"]["sounds"]["failure"]))
 
         self.recognizer.dynamic_energy_threshold = False
         self.recognizer.energy_threshold = 900
