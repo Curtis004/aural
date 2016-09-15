@@ -1,5 +1,6 @@
 import httplib2
-from urllib import parse
+import urllib
+import urlparse
 
 
 class AcumenClient:
@@ -8,12 +9,12 @@ class AcumenClient:
         self.connection = httplib2.Http()
 
     def process(self, said):
-        uri = parse.urljoin(
+        uri = urlparse.urljoin(
             self.config["acumen"]["service"],
             self.config["acumen"]["commands"]["voice"]
         )
 
-        room = parse.urlencode({"room": self.config["aural"]["room"]})
+        room = urllib.urlencode({"room": self.config["aural"]["room"]})
 
         resp, content = self.connection.request(
             uri=uri + "?" + room,
