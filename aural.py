@@ -5,6 +5,7 @@ import wave
 import pyaudio
 import speech_recognition as sr
 import yaml
+import os
 
 import acumen_client as ac
 
@@ -14,7 +15,7 @@ class Aural:
     recognizer = sr.Recognizer()
 
     def __init__(self):
-        with open("configuration.yaml") as config:
+        with open(os.path.join(os.path.dirname(__file__), "configuration.yaml")) as config:
             self.config = yaml.load(config)
 
         self.microphone = sr.Microphone()
