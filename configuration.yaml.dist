@@ -3,7 +3,7 @@ acumen:
   commands:
     voice: "/voice/command"
 aural:
-  room: "%DEFAULT_URI%"
+  room: "%DEFAULT_ROOM%"
   sounds:
     recognition: "sounds/recognition.wav"
     failure: "sounds/failure.wav"
